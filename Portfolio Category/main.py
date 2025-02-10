@@ -231,19 +231,19 @@ class ExcelWriter:
 
 def main():
     # Load data
-    loandb_loader = DataLoader("D:/Data KB Bank/KB Bank/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/LOANDB OKT 2024 V1.0 (BEFORE CKPN).xlsx", "LoanDB", ["ACCOUNT_NUMBER","CIF_MASTER","NAME","DEBTOR_CATEGORY","PORTOFOLIO_CATEGORY", "RESTRUCTURED_OR_NORMAL","TYPE_OF_LOAN","START","END","COLLECTIBILITY","CURRENT_LOAN_OUTSTANDING","DEBTOR_CLASSIFICATION","PRODUCT_NEW"])
+    loandb_loader = DataLoader("D:/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/LOANDB OKT 2024 V1.0 (BEFORE CKPN).xlsx", "LoanDB", ["ACCOUNT_NUMBER","CIF_MASTER","NAME","DEBTOR_CATEGORY","PORTOFOLIO_CATEGORY", "RESTRUCTURED_OR_NORMAL","TYPE_OF_LOAN","START","END","COLLECTIBILITY","CURRENT_LOAN_OUTSTANDING","DEBTOR_CLASSIFICATION","PRODUCT_NEW"])
     loandb = loandb_loader.load_data()
 
-    esinsial_1_loader = DataLoader("D:/Data KB Bank/KB Bank/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Esinsial 1.xlsx", "Essential")
+    esinsial_1_loader = DataLoader("D:/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Esinsial 1.xlsx", "Essential")
     esinsial_1 = esinsial_1_loader.load_data()
 
-    esinsial_2_loader = DataLoader("D:/Data KB Bank/KB Bank/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Esinsial 2.xlsx", "Essential")
+    esinsial_2_loader = DataLoader("D:/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Esinsial 2.xlsx", "Essential")
     esinsial_2 = esinsial_2_loader.load_data()
 
-    agunan_loader = DataLoader("D:/Data KB Bank/KB Bank/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Report_DataPelaporan_Agunan.xlsx", "Report_DataPelaporan_Agunan", ["NOMOR AGUNAN", "JENIS AGUNAN", "NILAI AGUNAN"], skiprows=6)
+    agunan_loader = DataLoader("D:/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Report_DataPelaporan_Agunan.xlsx", "Report_DataPelaporan_Agunan", ["NOMOR AGUNAN", "JENIS AGUNAN", "NILAI AGUNAN"], skiprows=6)
     agunan_property_only = agunan_loader.load_data()
 
-    agunankreditpembiayaan_loader = DataLoader("D:/Data KB Bank/KB Bank/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Report_DataPelaporan_Agunan_KreditPembiayaan.xlsx", "Report_DataPelaporan_Agunan_Kre", ["NOMOR REKENING", "NOMOR AGUNAN"], skiprows=6)
+    agunankreditpembiayaan_loader = DataLoader("D:/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/Report_DataPelaporan_Agunan_KreditPembiayaan.xlsx", "Report_DataPelaporan_Agunan_Kre", ["NOMOR REKENING", "NOMOR AGUNAN"], skiprows=6)
     agunankreditpembiayaan = agunankreditpembiayaan_loader.load_data()
 
     # Data processing
@@ -263,7 +263,7 @@ def main():
     merged_data = data_processor.add_note_column(merged_data)
 
     # Save results
-    excel_writer = ExcelWriter(merged_data, "D:/Data KB Bank/KB Bank/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/worksheet_katpor.xlsx")
+    excel_writer = ExcelWriter(merged_data, "D:/Verifikasi Kategori Portfolio Antasena Kredit/10-2024/RISK 11-2024/worksheet_katpor.xlsx")
     excel_writer.save()
 
     print("Data processing and saving complete!")
